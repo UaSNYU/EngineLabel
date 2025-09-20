@@ -1,0 +1,28 @@
+# Visual Studio cache
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# 编译输出
+bin/
+bin-int/
+
+# 中间文件和缓存
+*.pch
+*.ipch
+*.log
+*.tmp
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.cache
+*.tlog
+
+# 其他不需要版本控制的文件
+*.db
+*.opendb
+*.idb
