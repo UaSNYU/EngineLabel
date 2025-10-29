@@ -1,7 +1,7 @@
 project "GLAD"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "on"
 	warnings "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -25,3 +25,11 @@ project "GLAD"
 
 	filter {"system:windows","configurations:Release"}
 	    buildoptions "/MT"
+
+	 filter "configurations:Debug"
+		 runtime "Debug"
+		 symbols "On"
+
+	  filter "configurations:Release"
+		 runtime "Release"
+		 optimize "On"

@@ -74,6 +74,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
+#include "clpch.h"
 #include "imgui.h"
 #include "imgui_impl_opengl3.h"
 #include <stdio.h>
@@ -121,7 +122,6 @@ using namespace gl;
 #include <glbinding/gl/gl.h>
 using namespace gl;
 #else
-#include IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #endif
 #endif
 

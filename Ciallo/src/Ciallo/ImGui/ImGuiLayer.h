@@ -16,19 +16,11 @@ namespace Ciallo
 
 		void OnDetach() override;
 		void OnAttach() override;
-		void OnUpdate() override;
-		void OnEvent(Event& event) override;
+		void OnImGuiRender() override;
+		void Begin();
+		void End();
 	private:
-		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& event);
-		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& event);
-		bool OnMouseScrolledEvent(MouseScrolledEvent& event);
-		bool OnMouseMovedEvent(MouseMovedEvent& event);
-		bool OnKeyPressedEvent(KeyPressedEvent& event);
-		bool OnKeyReleasedEvent(KeyReleasedEvent& event);
-		bool OnKeyTypedEvent(KeyTypedEvent& event);
-		bool OnWindowResizeEvent(WindowResizeEvent& event);
-
-		float m_time;
+		float m_time=0.0f;
 	};
 
 

@@ -1,13 +1,13 @@
-
 #include "clpch.h"
 #include "Application.h"
-
-#include "glad/glad.h"
+#include "Input.h"
+#include "Renderer/Buffer.h"
+#include "Renderer/Renderer.h"
+#include "Renderer/RenderCommand.h"
+#include "GLFW//glfw3.h"
+#include "Core/TimeStep.h"
 
 namespace Ciallo {
-
-    #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
-
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
@@ -15,7 +15,12 @@ namespace Ciallo {
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+
+		m_ImGuiLayer=new ImGuiLayer();
+		pushOverlay(m_ImGuiLayer);
+
+		Renderer::Init();
 	}
 
 	Application::~Application()
@@ -38,7 +43,8 @@ namespace Ciallo {
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(Application::OnWindowResize));
 
 		HZ_CORE_TRACE("{0}",e.ToString());
 
@@ -56,13 +62,24 @@ namespace Ciallo {
 	{
 		while (m_Running)
 		{
-			glClearColor(1,1,0,1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			float time=(float)glfwGetTime();
+            TimeStep timestep = time - m_LastFrameTime;
+            m_LastFrameTime = time;
+			
+			if (!minimize)
+			{
+				for (auto layer : m_LayerStack)
+				{
+					layer->OnUpdate(timestep);
+				}
+			}
 
+			m_ImGuiLayer->Begin();
 			for (auto layer : m_LayerStack)
 			{
-				layer->OnUpdate();
+				layer->OnImGuiRender();
 			}
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
@@ -72,6 +89,21 @@ namespace Ciallo {
 	{
 		m_Running = false;
 		return true;
+	}
+
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetHeight() == 0 || e.GetWidth() == 0)
+		{
+			minimize = true;
+			return false;
+		}
+
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		minimize = false;
+
+		return false;
 	}
 
 }

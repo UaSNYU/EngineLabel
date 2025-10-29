@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Core.h"
-#include "Events//event.h"
+#include "Events/event.h"
+#include "Core/TimeStep.h"
 
 
 namespace Ciallo
@@ -14,7 +15,8 @@ namespace Ciallo
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(TimeStep timestep) {}
+		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
 		inline const std::string& GetName() const { return m_DebugName; }

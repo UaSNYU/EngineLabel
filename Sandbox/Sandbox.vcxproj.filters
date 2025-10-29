@@ -19,4 +19,8 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Shaders\Basic.shader" />
+    <None Include="res\Shaders\TextureShader.shader" />
+  </ItemGroup>
 </Project>

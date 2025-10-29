@@ -16,15 +16,20 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Ciallo/vendor/GLFW/include"
 IncludeDir["GLAD"] = "Ciallo/vendor/GLAD/include"
 IncludeDir["ImGui"] = "Ciallo/vendor/imgui"
+IncludeDir["glm"] = "Ciallo/vendor/glm"
+IncludeDir["Stb_image"] = "Ciallo/vendor/STBIMAGE"
 
 include "Ciallo/vendor/GLAD"
 include "Ciallo/vendor/GLFW"
 include "Ciallo/vendor/imgui"
 
+
 project "Ciallo"
    location "Ciallo"
-   kind "SharedLib"
+   kind "StaticLib"
    language "C++"
+   cppdialect "C++17"
+   staticruntime "on"
 
    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -35,7 +40,11 @@ project "Ciallo"
    files
    {
 	   "%{prj.name}/src/**.h",
-       "%{prj.name}/src/**.cpp"
+       "%{prj.name}/src/**.cpp",
+	   "%{prj.name}/vendor/glm/glm/**.hpp",
+	   "%{prj.name}/vendor/glm/glm/**.inl",
+	   "%{prj.name}/vendor/STBIMAGE/stb_image.h",
+	   "%{prj.name}/vendor/STBIMAGE/stb_image.cpp"
    }
 
    includedirs
@@ -44,7 +53,9 @@ project "Ciallo"
 	   "%{prj.name}/vendor/spdlog/include",
 	   "%{IncludeDir.GLFW}",
 	   "%{IncludeDir.GLAD}",
-	   "%{IncludeDir.ImGui}"
+	   "%{IncludeDir.ImGui}",
+	   "%{IncludeDir.glm}",
+	   "%{IncludeDir.Stb_image}"
    }
 
    links
@@ -56,8 +67,6 @@ project "Ciallo"
    }
 
    filter "system:windows"
-      cppdialect "C++17"
-	  staticruntime "off"
 	  systemversion "latest"
 	  buildoptions {"/utf-8"}
 
@@ -68,31 +77,27 @@ project "Ciallo"
 		  "GLFW_INCLUDE_NONE"
 	  }
 
-	  postbuildcommands
-	  {
-          ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-	  }
-
-
 	  filter "configurations:Debug"
 	     defines "HZ_DEBUG"
-		 buildoptions "/MDd"
+		 runtime "Debug"
 		 symbols "On"
 
 	  filter "configurations:Release"
 	     defines "HZ_RELEASE"
-		 buildoptions "/MD"
+		 runtime "Release"
 		 optimize "On"
 
 	  filter "configurations:Dist"
 	     defines "HZ_DIST"
-		 buildoptions "/MD"
+		 runtime "Release"
 		 optimize "On"
 
 project "Sandbox"
    location "Sandbox"
    kind "consoleApp"
    language "C++"
+   cppdialect "C++17"
+   staticruntime "on"
 
    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -111,12 +116,12 @@ project "Sandbox"
    includedirs
    {
 	   "Ciallo/vendor/spdlog/include",
-	   "Ciallo/src"
+	   "Ciallo/src",
+	   "%{IncludeDir.glm}",
+	   "%{IncludeDir.ImGui}"
    }
 
    filter "system:windows"
-      cppdialect "C++17"
-	  staticruntime "off"
 	  systemversion "latest"
 	  buildoptions {"/utf-8"}
 
@@ -128,12 +133,15 @@ project "Sandbox"
 
 	  filter "configurations:Debug"
 	     defines "HZ_DEBUG"
+		 runtime "Debug"
 		 symbols "On"
 
 	  filter "configurations:Release"
 	     defines "HZ_RELEASE"
+		 runtime "Release"
 		 optimize "On"
 
 	  filter "configurations:Dist"
 	     defines "HZ_DIST"
+		 runtime "Release"
 		 optimize "On"
