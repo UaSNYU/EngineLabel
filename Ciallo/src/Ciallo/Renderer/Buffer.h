@@ -124,8 +124,10 @@ namespace Ciallo
 		virtual void Unbind()const = 0;
 		virtual const BufferLayout& GetLayout()const = 0;
 		virtual void  SetLayout(const BufferLayout& layout) = 0;
+		virtual void Setdata(void* data, uint32_t size) = 0;
 
-		static VertexBuffer* create(float* vertices, uint32_t size);
+		static Ref<VertexBuffer> create(uint32_t size);
+		static Ref<VertexBuffer> create(float* vertices, uint32_t size);
 	};
 
 
@@ -139,7 +141,7 @@ namespace Ciallo
 
 		virtual uint32_t GetCount()const = 0;
 
-		static IndexBuffer* create(uint32_t* vertices, uint32_t count);
+		static Ref<IndexBuffer> create(uint32_t* vertices, uint32_t count);
 
 	};
 }

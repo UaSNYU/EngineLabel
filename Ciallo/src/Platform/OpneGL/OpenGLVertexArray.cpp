@@ -36,22 +36,28 @@ namespace Ciallo
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
+		HZ_PROFILE_FUNCTION();
 		glCreateVertexArrays(1, &m_RendererID);
 	}
 	OpenGLVertexArray::~OpenGLVertexArray()
 	{
+		HZ_PROFILE_FUNCTION();
 		glDeleteVertexArrays(1, &m_RendererID);
 	}
 	void OpenGLVertexArray::Bind() const
 	{
+		HZ_PROFILE_FUNCTION();
 		glBindVertexArray(m_RendererID);
 	}
 	void OpenGLVertexArray::Unbind() const
 	{
+		HZ_PROFILE_FUNCTION();
 		glBindVertexArray(m_RendererID);
 	}
 	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer> vertexBuffer)
 	{
+		HZ_PROFILE_FUNCTION();
+
         glBindVertexArray(m_RendererID);
 		vertexBuffer->bind();
 		const BufferLayout &layout = vertexBuffer->GetLayout();
@@ -67,6 +73,8 @@ namespace Ciallo
 	}
 	void OpenGLVertexArray::AddIndexBuffer(const Ref<IndexBuffer> indexBuffer)
 	{
+		HZ_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 		indexBuffer->bind();
 		m_IndexBuffer = indexBuffer;

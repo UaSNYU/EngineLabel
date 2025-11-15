@@ -1,7 +1,7 @@
 #pragma once
 
 #include "clpch.h"
-#include "Ciallo/Core.h"
+#include "Ciallo/Core/Core.h"
 
 namespace Ciallo
 {

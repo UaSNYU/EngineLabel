@@ -10,6 +10,7 @@ namespace Ciallo
 
 		inline static void Init()
 		{
+			HZ_PROFILE_FUNCTION();
 			m_RenderAPI->Init();
 		}
 
@@ -26,9 +27,10 @@ namespace Ciallo
             m_RenderAPI->Clear();
 		}
 
-		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray)
+		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray,uint32_t count = 0)
 		{
-            m_RenderAPI->DrawIndexed(vertexArray);
+            m_RenderAPI->DrawIndexed(vertexArray,count);
+
 		}
 
 	private:

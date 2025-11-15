@@ -9,7 +9,7 @@
 #include "examples/imgui_impl_opengl3.h"
 #include "imgui.h"
 
-#include "Ciallo/Application.h"
+#include "Ciallo/Core/Application.h"
 
 #include <GLFW//glfw3.h>
 #include <glad/glad.h>
@@ -61,6 +61,17 @@ namespace Ciallo
 		ImGui_ImplOpenGL3_Init("#version 410");
 	}
 
+	void ImGuiLayer::OnEvent(Event& event)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		if (m_Eventblock)
+		{
+			event.m_handled |= event.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+			event.m_handled |= event.IsInCategory(EventCategorykeyboard) & io.WantCaptureKeyboard;
+		}
+		
+	}
+
 	void ImGuiLayer::OnDetach()
 	{
 		ImGui_ImplOpenGL3_Shutdown();
@@ -77,8 +88,8 @@ namespace Ciallo
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
+		static bool show = false;
+		//ImGui::ShowDemoWindow(&show);
 			
 	}
 

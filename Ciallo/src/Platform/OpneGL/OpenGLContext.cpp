@@ -15,6 +15,8 @@ namespace Ciallo
 
 	void OpenGLContext::Init()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_windowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
@@ -25,6 +27,8 @@ namespace Ciallo
 
 	void OpenGLContext::SwapBuffers()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_windowHandle);
 	}
 

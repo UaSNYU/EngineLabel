@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Ciallo//Layer.h"
+#include "Ciallo/Core/Layer.h"
 
 #include "Ciallo/Events/KeyEvent.h"
 #include "Ciallo/Events/MouseEvent.h"
@@ -16,11 +16,16 @@ namespace Ciallo
 
 		void OnDetach() override;
 		void OnAttach() override;
+		void OnEvent(Event& event) override;
 		void OnImGuiRender() override;
+
+		void SetBlockEvent(bool block) { m_Eventblock = block; }
+
 		void Begin();
 		void End();
 	private:
 		float m_time=0.0f;
+		bool m_Eventblock=true;
 	};
 
 

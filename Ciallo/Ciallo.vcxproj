@@ -76,8 +76,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>clpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_ENABLE_ASSERTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,8 +98,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>clpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_ENABLE_ASSERTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -124,8 +124,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>clpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_ENABLE_ASSERTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -147,34 +147,44 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Ciallo.h" />
-    <ClInclude Include="src\Ciallo\Application.h" />
-    <ClInclude Include="src\Ciallo\Core.h" />
+    <ClInclude Include="src\Ciallo\Core\Application.h" />
+    <ClInclude Include="src\Ciallo\Core\Core.h" />
+    <ClInclude Include="src\Ciallo\Core\EntryPoint.h" />
+    <ClInclude Include="src\Ciallo\Core\Input.h" />
+    <ClInclude Include="src\Ciallo\Core\KeyCodes.h" />
+    <ClInclude Include="src\Ciallo\Core\Layer.h" />
+    <ClInclude Include="src\Ciallo\Core\LayerStack.h" />
+    <ClInclude Include="src\Ciallo\Core\Log.h" />
+    <ClInclude Include="src\Ciallo\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Ciallo\Core\TimeStep.h" />
-    <ClInclude Include="src\Ciallo\EntryPoint.h" />
+    <ClInclude Include="src\Ciallo\Core\Window.h" />
+    <ClInclude Include="src\Ciallo\Debug\Instrumentor.h" />
     <ClInclude Include="src\Ciallo\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Ciallo\Events\Event.h" />
     <ClInclude Include="src\Ciallo\Events\KeyEvent.h" />
     <ClInclude Include="src\Ciallo\Events\MouseEvent.h" />
     <ClInclude Include="src\Ciallo\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Ciallo\Input.h" />
-    <ClInclude Include="src\Ciallo\KeyCodes.h" />
-    <ClInclude Include="src\Ciallo\Layer.h" />
-    <ClInclude Include="src\Ciallo\LayerStack.h" />
-    <ClInclude Include="src\Ciallo\Log.h" />
-    <ClInclude Include="src\Ciallo\MouseButtonCodes.h" />
-    <ClInclude Include="src\Ciallo\OrthographicCameraController.h" />
     <ClInclude Include="src\Ciallo\Renderer\Buffer.h" />
+    <ClInclude Include="src\Ciallo\Renderer\FrameBuffer.h" />
     <ClInclude Include="src\Ciallo\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Ciallo\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Ciallo\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Ciallo\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Ciallo\Renderer\Renderer.h" />
+    <ClInclude Include="src\Ciallo\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Ciallo\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Ciallo\Renderer\Shader.h" />
+    <ClInclude Include="src\Ciallo\Renderer\SubTexture2D.h" />
     <ClInclude Include="src\Ciallo\Renderer\Texture.h" />
     <ClInclude Include="src\Ciallo\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Ciallo\Window.h" />
+    <ClInclude Include="src\Ciallo\Scene\Camera.h" />
+    <ClInclude Include="src\Ciallo\Scene\Components.h" />
+    <ClInclude Include="src\Ciallo\Scene\Entity.h" />
+    <ClInclude Include="src\Ciallo\Scene\Scene.h" />
+    <ClInclude Include="src\Ciallo\Scene\SceneCamera.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpneGL\OpenGLFrameBuffer.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLTexture.h" />
@@ -603,23 +613,30 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Ciallo\Application.cpp" />
+    <ClCompile Include="src\Ciallo\Core\Application.cpp" />
+    <ClCompile Include="src\Ciallo\Core\Layer.cpp" />
+    <ClCompile Include="src\Ciallo\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Ciallo\Core\Log.cpp" />
     <ClCompile Include="src\Ciallo\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Ciallo\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Ciallo\Layer.cpp" />
-    <ClCompile Include="src\Ciallo\LayerStack.cpp" />
-    <ClCompile Include="src\Ciallo\Log.cpp" />
-    <ClCompile Include="src\Ciallo\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Ciallo\Renderer\FrameBuffer.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Ciallo\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Ciallo\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Ciallo\Renderer\SubTexture2D.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\Texture.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\Entity.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\Scene.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\SceneCamera.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpneGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLTexture.cpp" />

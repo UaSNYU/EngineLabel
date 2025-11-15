@@ -1,5 +1,6 @@
 workspace "Ciallo"
    architecture "x64"
+   startproject "Sandbox"
 
    configurations
    {
@@ -18,6 +19,7 @@ IncludeDir["GLAD"] = "Ciallo/vendor/GLAD/include"
 IncludeDir["ImGui"] = "Ciallo/vendor/imgui"
 IncludeDir["glm"] = "Ciallo/vendor/glm"
 IncludeDir["Stb_image"] = "Ciallo/vendor/STBIMAGE"
+IncludeDir["entt"]= "Ciallo/vendor/entt/include"
 
 include "Ciallo/vendor/GLAD"
 include "Ciallo/vendor/GLFW"
@@ -55,7 +57,8 @@ project "Ciallo"
 	   "%{IncludeDir.GLAD}",
 	   "%{IncludeDir.ImGui}",
 	   "%{IncludeDir.glm}",
-	   "%{IncludeDir.Stb_image}"
+	   "%{IncludeDir.Stb_image}",
+	   "%{IncludeDir.entt}"
    }
 
    links
@@ -119,6 +122,62 @@ project "Sandbox"
 	   "Ciallo/src",
 	   "%{IncludeDir.glm}",
 	   "%{IncludeDir.ImGui}"
+   }
+
+   filter "system:windows"
+	  systemversion "latest"
+	  buildoptions {"/utf-8"}
+
+	  defines
+	  {
+		  "HZ_PLATFORM_WINDOWS",
+		  "_WINDLL"
+	  }
+
+	  filter "configurations:Debug"
+	     defines "HZ_DEBUG"
+		 runtime "Debug"
+		 symbols "On"
+
+	  filter "configurations:Release"
+	     defines "HZ_RELEASE"
+		 runtime "Release"
+		 optimize "On"
+
+	  filter "configurations:Dist"
+	     defines "HZ_DIST"
+		 runtime "Release"
+		 optimize "On"
+
+
+project "Ciallo-Editor"
+   location "Ciallo-Editor"
+   kind "consoleApp"
+   language "C++"
+   cppdialect "C++17"
+   staticruntime "on"
+
+   targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+   objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+   links
+   {
+	   "Ciallo"
+   }
+
+   files
+   {
+	   "%{prj.name}/src/**.h",
+       "%{prj.name}/src/**.cpp"
+   }
+
+   includedirs
+   {
+	   "Ciallo/vendor/spdlog/include",
+	   "Ciallo/src",
+	   "%{IncludeDir.glm}",
+	   "%{IncludeDir.ImGui}",
+	   "%{IncludeDir.entt}"
    }
 
    filter "system:windows"

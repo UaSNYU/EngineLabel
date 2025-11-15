@@ -14,8 +14,11 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <stdint.h>
+#include "Ciallo/Debug/Instrumentor.h"
 
-#include "Ciallo/Log.h"
+#include "Ciallo/Core/Log.h"
+
+
 
 #ifdef  HZ_PLATFORM_WINDOWS
    #include <Windows.h>

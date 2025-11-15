@@ -2,7 +2,7 @@
 #include "WindowsInput.h"
 
 #include "GLFW/glfw3.h"
-#include "Ciallo/Application.h"
+#include "Ciallo/Core/Application.h"
 
 namespace Ciallo
 {

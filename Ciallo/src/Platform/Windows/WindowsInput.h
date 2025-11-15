@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Ciallo/Input.h"
+#include "Ciallo/Core/Input.h"
 
 namespace Ciallo {
 

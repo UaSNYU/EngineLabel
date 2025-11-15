@@ -10,6 +10,9 @@
     <Filter Include="src\Ciallo\Core">
       <UniqueIdentifier>{E8F5C0E1-5481-2EA6-5D92-B19AC99C8AA6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ciallo\Debug">
+      <UniqueIdentifier>{060EEC19-F206-0B6C-1B39-F0F00791EA77}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Ciallo\Events">
       <UniqueIdentifier>{7421F85A-E037-F6F0-29AF-81129504C778}</UniqueIdentifier>
     </Filter>
@@ -57,17 +60,41 @@
     <ClInclude Include="src\Ciallo.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\Application.h">
-      <Filter>src\Ciallo</Filter>
+    <ClInclude Include="src\Ciallo\Core\Application.h">
+      <Filter>src\Ciallo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\Core.h">
-      <Filter>src\Ciallo</Filter>
+    <ClInclude Include="src\Ciallo\Core\Core.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\EntryPoint.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\Input.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\KeyCodes.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\Layer.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\LayerStack.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\Log.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\MouseButtonCodes.h">
+      <Filter>src\Ciallo\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Core\TimeStep.h">
       <Filter>src\Ciallo\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\EntryPoint.h">
-      <Filter>src\Ciallo</Filter>
+    <ClInclude Include="src\Ciallo\Core\Window.h">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Debug\Instrumentor.h">
+      <Filter>src\Ciallo\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Events\ApplicationEvent.h">
       <Filter>src\Ciallo\Events</Filter>
@@ -84,25 +111,10 @@
     <ClInclude Include="src\Ciallo\ImGui\ImGuiLayer.h">
       <Filter>src\Ciallo\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\Input.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ciallo\KeyCodes.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ciallo\Layer.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ciallo\LayerStack.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ciallo\Log.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ciallo\MouseButtonCodes.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\Buffer.h">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Renderer\FrameBuffer.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\GraphicsContext.h">
@@ -111,10 +123,16 @@
     <ClInclude Include="src\Ciallo\Renderer\OrthographicCamera.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ciallo\Renderer\OrthographicCameraController.h">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\RenderCommand.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\Renderer.h">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Renderer\Renderer2D.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\RendererAPI.h">
@@ -123,19 +141,22 @@
     <ClInclude Include="src\Ciallo\Renderer\Shader.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ciallo\Renderer\SubTexture2D.h">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\Texture.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\VertexArray.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\Window.h">
-      <Filter>src\Ciallo</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\OpneGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpneGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpneGL\OpenGLContext.h">
+      <Filter>src\Platform\OpneGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpneGL\OpenGLFrameBuffer.h">
       <Filter>src\Platform\OpneGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpneGL\OpenGLRendererAPI.h">
@@ -1416,11 +1437,24 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\OrthographicCameraController.h" />
+    <ClInclude Include="src\Ciallo\Scene\Scene.h" />
+    <ClInclude Include="src\Ciallo\Scene\Components.h" />
+    <ClInclude Include="src\Ciallo\Scene\Entity.h" />
+    <ClInclude Include="src\Ciallo\Scene\Camera.h" />
+    <ClInclude Include="src\Ciallo\Scene\SceneCamera.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Ciallo\Application.cpp">
-      <Filter>src\Ciallo</Filter>
+    <ClCompile Include="src\Ciallo\Core\Application.cpp">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Core\Layer.cpp">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Core\LayerStack.cpp">
+      <Filter>src\Ciallo\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Core\Log.cpp">
+      <Filter>src\Ciallo\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ciallo\ImGui\ImGuiBuild.cpp">
       <Filter>src\Ciallo\ImGui</Filter>
@@ -1428,19 +1462,16 @@
     <ClCompile Include="src\Ciallo\ImGui\ImGuiLayer.cpp">
       <Filter>src\Ciallo\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ciallo\Layer.cpp">
-      <Filter>src\Ciallo</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ciallo\LayerStack.cpp">
-      <Filter>src\Ciallo</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ciallo\Log.cpp">
-      <Filter>src\Ciallo</Filter>
-    </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\Buffer.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ciallo\Renderer\FrameBuffer.cpp">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\RenderCommand.cpp">
@@ -1449,10 +1480,16 @@
     <ClCompile Include="src\Ciallo\Renderer\Renderer.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ciallo\Renderer\Renderer2D.cpp">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\RendererAPI.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\Shader.cpp">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Renderer\SubTexture2D.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\Texture.cpp">
@@ -1465,6 +1502,9 @@
       <Filter>src\Platform\OpneGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpneGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpneGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpneGL\OpenGLFrameBuffer.cpp">
       <Filter>src\Platform\OpneGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpneGL\OpenGLRendererAPI.cpp">
@@ -1491,6 +1531,8 @@
     <ClCompile Include="vendor\STBIMAGE\stb_image.cpp">
       <Filter>vendor\STBIMAGE</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ciallo\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\Scene.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\Entity.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>

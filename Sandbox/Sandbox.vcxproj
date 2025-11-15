@@ -137,7 +137,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\testexample\ParticleSystem.h" />
+    <ClInclude Include="src\testexample\Random.h" />
+    <ClInclude Include="src\testexample\Sandbox2D.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\SandboxApp.cpp" />
+    <ClCompile Include="src\testexample\ParticleSystem.cpp" />
+    <ClCompile Include="src\testexample\Random.cpp" />
+    <ClCompile Include="src\testexample\Sandbox2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ciallo\Ciallo.vcxproj">

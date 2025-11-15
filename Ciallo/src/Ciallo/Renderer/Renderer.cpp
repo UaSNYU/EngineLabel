@@ -1,5 +1,6 @@
 #include "clpch.h"
 #include "Renderer.h"
+#include "Renderer2D.h"
 #include "RenderCommand.h"
 #include "Shader.h"
 #include "Platform/OpneGL/OpenGLShader.h"
@@ -15,7 +16,10 @@ namespace Ciallo
 
 	void Renderer::Init()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
+		Renderer2D::Init();
 	}
 
 	void Renderer::BeginScene(const OrthographicCamera& camera)

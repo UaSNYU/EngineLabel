@@ -6,6 +6,9 @@
 
 namespace Ciallo
 {
+	static std::unordered_map<std::string,uint32_t> uniformCache;
+
+
 	static GLenum ShaderTypeFromString(const std::string& type)
 	{
 		if (type == "vertex")
@@ -162,39 +165,196 @@ namespace Ciallo
 		glDeleteProgram(m_RendererID);
 	}
 
+	void OpenGLShader::SetIntArray(const std::string& name,  int* values,  uint32_t count)
+	{
+		UploadUniformiv(name,values, count);
+	}
+
+	void OpenGLShader::SetFloat(const std::string& name, const float value)
+	{
+		UploadUniformfloat(name, value);
+	}
+
+	void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& values)
+	{
+		UploadUniform4f(name, values);
+	}
+
+	void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& values)
+	{
+		UploadUniform3f(name, values);
+	}
+
+	void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& values)
+	{
+		UploadUniform4fv(name, values);
+	}
+
+	void OpenGLShader::SetInt(const std::string& name, const int value)
+	{
+		UploadUniformInt(name, value);
+	}
+
+
+	void OpenGLShader::UploadUniformiv(const std::string& name,int* values,uint32_t count)
+	{
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
+		glUniform1iv(location,count, values);
+	}
 
 	void OpenGLShader::UploadUniform4fv(const std::string& name, const glm::mat4& matrix) const
 	{
-		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
 		glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 
 	void OpenGLShader::UploadUniform4f(const std::string& name, const glm::vec4& values) const
 	{
-		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
 		glUniform4f(location, values.x, values.y, values.z, values.w);
 	}
 
 	void OpenGLShader::UploadUniform3f(const std::string& name, const glm::vec3& values) const
 	{
-		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
+
 		glUniform3f(location, values.x, values.y, values.z);
 	}
 
 	void OpenGLShader::UploadUniform2f(const std::string& name, const glm::vec2& values)const
 	{
-		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
 		glUniform2f(location,values.x, values.y);
 	}
 	void OpenGLShader::UploadUniformfloat(const std::string& name, const float values)const
 	{
-		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
 		glUniform1f(location, values);
 	}
 
 	void OpenGLShader::UploadUniformInt(const std::string& name, const int values)const
 	{
-		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		GLint location = 0;
+
+		if (uniformCache.find(name) != uniformCache.end())
+		{
+			location = uniformCache[name];
+		}
+		else
+		{
+			location = glGetUniformLocation(m_RendererID, name.c_str());
+			uniformCache[name] = location;
+		}
+
+		if (location == -1)
+		{
+			HZ_CORE_WARN("Uniform {0} not found!", name);
+			return;
+		}
+
+		
 		glUniform1i(location, values);
 	}
 

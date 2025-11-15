@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Ciallo/Window.h"
-#include "Ciallo/Core.h"
+#include "Ciallo/Core/Window.h"
+#include "Ciallo/Core/Core.h"
 
 #include <GLFW/glfw3.h>
 #include "Ciallo/Renderer/GraphicsContext.h"

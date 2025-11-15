@@ -6,12 +6,13 @@
 
 namespace Ciallo
 {
-	VertexArray* VertexArray::Create()
+	Ref<VertexArray> VertexArray::Create()
 	{
+
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::NONE: HZ_CORE_ASSERT(false, "NONE IS NOT SUPPORT!"); return nullptr;
-		case RendererAPI::API::OpenGL: return new OpenGLVertexArray(); break;
+		case RendererAPI::API::OpenGL: return std::make_shared<OpenGLVertexArray>(); break;
 		}
 
 		HZ_CORE_ASSERT(false, "Unknow API!!");

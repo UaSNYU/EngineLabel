@@ -12,6 +12,8 @@
 
 namespace Ciallo
 {
+	
+
 	static bool s_GLFWInitialized = false;
 
 	static void GLFWErrorCallback(int error_code, const char* description)
@@ -26,11 +28,13 @@ namespace Ciallo
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		HZ_PROFILE_FUNCTION();
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		HZ_PROFILE_FUNCTION();
 		Shutdown();
 	}
 
@@ -165,6 +169,8 @@ namespace Ciallo
 
 	void WindowsWindow::OnUpdate()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
