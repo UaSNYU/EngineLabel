@@ -1,1 +1,1 @@
-{"otherData": {},"traceEvents": [{"cat":"function","dur":41369,"name":"__cdecl Ciallo::WindowsWindow::~WindowsWindow(void)","ph":"X","pid":0,"tid":608371745,"ts":15107623291}]}
+{"otherData": {},"traceEvents": [{"cat":"function","dur":39594,"name":"__cdecl Ciallo::WindowsWindow::~WindowsWindow(void)","ph":"X","pid":0,"tid":2124751248,"ts":17644058733}]}
