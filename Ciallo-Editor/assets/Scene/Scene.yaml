@@ -1,0 +1,47 @@
+Scene: Untitled
+Entities:
+  - Entity: 3
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Translation: [0, 2, 3.6]
+      Rotation: [-13, -0.4, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        CameraType: 0
+        OrthographicCameraSize: 10
+        OrthographicNearClip: -1
+        OrthographicFarClip: 1
+        PerpectiveCameraFov: 45
+        PerpectiveNearClip: 0.01
+        PerpectiveFarClip: 1000
+      Primary: true
+      FixedAspectRadio: false
+  - Entity: 2
+    TagComponent:
+      Tag: Square
+    TransformComponent:
+      Translation: [0.148, 0.5, -0.359]
+      Rotation: [89.999985, 45, 0]
+      Scale: [0.9999999, 0.9999833, 0.9998914]
+    SpriteComponent:
+      Color: [1, 1, 1, 1]
+  - Entity: 1
+    TagComponent:
+      Tag: SquareRight
+    TransformComponent:
+      Translation: [0.5, 0, 0]
+      Rotation: [0, 45, 0]
+      Scale: [1, 1, 0.9999999]
+    SpriteComponent:
+      Color: [0.73214287, 0.7168899, 0.7168899, 1]
+  - Entity: 0
+    TagComponent:
+      Tag: SuareLeft
+    TransformComponent:
+      Translation: [-0.2, 0, 0]
+      Rotation: [0, -45, 0]
+      Scale: [0.99999964, 0.9999999, 0.9999999]
+    SpriteComponent:
+      Color: [0.88988096, 0.889872, 0.889872, 1]

@@ -18,9 +18,12 @@ namespace Ciallo
 
 	void OpenGLRendererAPI::Init()
 	{
-		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_LINE_SMOOTH);
+
 	}
 
 	void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t IndexCount)
@@ -30,8 +33,17 @@ namespace Ciallo
 
 
 	}
+	void OpenGLRendererAPI::DrawLines(const const Ref<VertexArray>& vertexArray, uint32_t vertexcount)
+	{
+		glDrawArrays(GL_LINES,0,vertexcount);
+	}
+
 	void OpenGLRendererAPI::SetViewPort(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
 	{
 		glViewport(x, y, width, height);
+	}
+	void OpenGLRendererAPI::SetLineWidth(float width)
+	{
+		glLineWidth(width);
 	}
 }

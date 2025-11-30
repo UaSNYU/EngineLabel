@@ -13,6 +13,10 @@
 #include "Ciallo/Scene/Scene.h"
 #include "Ciallo/Scene/Components.h"
 #include "Ciallo/Scene/Entity.h"
+#include "Ciallo/Scene/ScriptableEntity.h"
+#include "Ciallo/Scene/SceneSerializer.h"
+#include "Ciallo/Core/Utils/platformUtils.h"
+
 //Renderer???????????????????
 #include "Ciallo/Renderer/Renderer.h"
 #include "Ciallo/Renderer/Renderer2D.h"

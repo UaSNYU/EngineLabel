@@ -10,6 +10,9 @@
     <Filter Include="src\Ciallo\Core">
       <UniqueIdentifier>{E8F5C0E1-5481-2EA6-5D92-B19AC99C8AA6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ciallo\Core\Utils">
+      <UniqueIdentifier>{48C591E4-B431-4DDF-7D25-E53CE9506F47}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Ciallo\Debug">
       <UniqueIdentifier>{060EEC19-F206-0B6C-1B39-F0F00791EA77}</UniqueIdentifier>
     </Filter>
@@ -22,6 +25,9 @@
     <Filter Include="src\Ciallo\Renderer">
       <UniqueIdentifier>{365D81F0-A2BE-5EFE-2B2C-A5B0978C95BD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ciallo\Scene">
+      <UniqueIdentifier>{AD70FA1A-9969-196D-C29B-FEF1AEF3F878}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -33,6 +39,9 @@
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\ImGuizmo">
+      <UniqueIdentifier>{73BF7F4C-DF4A-ED10-E85B-700554664911}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor\STBIMAGE">
       <UniqueIdentifier>{EECDCBF3-5A59-39B8-636A-BCACCF7495B8}</UniqueIdentifier>
@@ -89,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="src\Ciallo\Core\TimeStep.h">
       <Filter>src\Ciallo\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Core\Utils\platformUtils.h">
+      <Filter>src\Ciallo\Core\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Ciallo\Core\Window.h">
       <Filter>src\Ciallo\Core</Filter>
@@ -147,8 +159,35 @@
     <ClInclude Include="src\Ciallo\Renderer\Texture.h">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ciallo\Renderer\UniformBuffer.h">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ciallo\Renderer\VertexArray.h">
       <Filter>src\Ciallo\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\Camera.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\Components.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\EditorCamera.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\Entity.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\Scene.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\SceneCamera.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\SceneSerializer.h">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ciallo\Scene\ScriptableEntity.h">
+      <Filter>src\Ciallo\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpneGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpneGL</Filter>
@@ -168,6 +207,9 @@
     <ClInclude Include="src\Platform\OpneGL\OpenGLTexture.h">
       <Filter>src\Platform\OpneGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpneGL\OpenGLUniformBuffer.h">
+      <Filter>src\Platform\OpneGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpneGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpneGL</Filter>
     </ClInclude>
@@ -179,6 +221,9 @@
     </ClInclude>
     <ClInclude Include="src\clpch.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\ImGuizmo\ImGuizmo.h">
+      <Filter>vendor\ImGuizmo</Filter>
     </ClInclude>
     <ClInclude Include="vendor\STBIMAGE\stb_image.h">
       <Filter>vendor\STBIMAGE</Filter>
@@ -1437,11 +1482,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ciallo\Scene\Scene.h" />
-    <ClInclude Include="src\Ciallo\Scene\Components.h" />
-    <ClInclude Include="src\Ciallo\Scene\Entity.h" />
-    <ClInclude Include="src\Ciallo\Scene\Camera.h" />
-    <ClInclude Include="src\Ciallo\Scene\SceneCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ciallo\Core\Application.cpp">
@@ -1495,8 +1535,26 @@
     <ClCompile Include="src\Ciallo\Renderer\Texture.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ciallo\Renderer\UniformBuffer.cpp">
+      <Filter>src\Ciallo\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ciallo\Renderer\VertexArray.cpp">
       <Filter>src\Ciallo\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Scene\EditorCamera.cpp">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Scene\Entity.cpp">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Scene\Scene.cpp">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Scene\SceneCamera.cpp">
+      <Filter>src\Ciallo\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ciallo\Scene\SceneSerializer.cpp">
+      <Filter>src\Ciallo\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpneGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpneGL</Filter>
@@ -1516,8 +1574,14 @@
     <ClCompile Include="src\Platform\OpneGL\OpenGLTexture.cpp">
       <Filter>src\Platform\OpneGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpneGL\OpenGLUniformBuffer.cpp">
+      <Filter>src\Platform\OpneGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpneGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpneGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowPlatformUtils.cpp">
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
@@ -1528,11 +1592,11 @@
     <ClCompile Include="src\clpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\ImGuizmo\ImGuizmo.cpp">
+      <Filter>vendor\ImGuizmo</Filter>
+    </ClCompile>
     <ClCompile Include="vendor\STBIMAGE\stb_image.cpp">
       <Filter>vendor\STBIMAGE</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ciallo\Scene\Scene.cpp" />
-    <ClCompile Include="src\Ciallo\Scene\Entity.cpp" />
-    <ClCompile Include="src\Ciallo\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>

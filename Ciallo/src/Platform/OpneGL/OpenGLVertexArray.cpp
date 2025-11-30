@@ -22,13 +22,13 @@ namespace Ciallo
 		case ShaderDateType::Mat4:
 			return GL_FLOAT;
 		case ShaderDateType::Int:
-			return GL_UNSIGNED_INT;
+			return GL_INT;
 		case ShaderDateType::Int2:
-			return  GL_UNSIGNED_INT;
+			return  GL_INT;
 		case ShaderDateType::Int3:
-			return  GL_UNSIGNED_INT;
+			return  GL_INT;
 		case ShaderDateType::Int4:
-			return  GL_UNSIGNED_INT;
+			return  GL_INT;
 		case ShaderDateType::Bool:
 			return GL_BOOL;
 		}
@@ -65,7 +65,15 @@ namespace Ciallo
 		for (const auto& element : layout)
 		{
 			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(index,element.GetComponentCount(), ShaderDataTypeToOpenGL(element.type), element.normalized ? GL_TRUE : GL_FALSE, layout.GetStride(), (void*)element.offset);
+			if (element.type == ShaderDateType::Int)
+			{
+				glVertexAttribIPointer(index, element.GetComponentCount(), ShaderDataTypeToOpenGL(element.type), layout.GetStride(), (void*)element.offset);
+			}
+			else
+			{
+				glVertexAttribPointer(index,element.GetComponentCount(), ShaderDataTypeToOpenGL(element.type), element.normalized ? GL_TRUE : GL_FALSE, layout.GetStride(), (void*)element.offset);		
+			}
+
 			index++;
 		}
 

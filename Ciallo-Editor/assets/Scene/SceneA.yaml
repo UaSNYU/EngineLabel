@@ -1,0 +1,99 @@
+Scene: Untitled
+Entities:
+  - Entity: 775073997
+    TagComponent:
+      Tag: Circle
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CircleSpriteComponent:
+      Color: [0.9464286, 0.29857567, 0.29857567, 1]
+      Radius: 0.5
+      Thickness: 0.425
+      fade: 0.005
+    Rigidbody2DComponent:
+      Type: Static
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Size: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 658586205
+    TagComponent:
+      Tag: Box
+    TransformComponent:
+      Translation: [-0.5354324, 2.293982, 0]
+      Rotation: [0, 0, -0.023703933]
+      Scale: [1, 1, 1]
+    SpriteComponent:
+      Color: [0.6547619, 0.12471655, 0.12471655, 1]
+    Rigidbody2DComponent:
+      Type: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.6
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 154653121
+    TagComponent:
+      Tag: Box1
+    TransformComponent:
+      Translation: [4.001103, -2.817752, 0]
+      Rotation: [0, 0, 43.21308]
+      Scale: [31.616741, 1, 1]
+    SpriteComponent:
+      Color: [1, 1, 1, 1]
+    Rigidbody2DComponent:
+      Type: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 1856621462
+    TagComponent:
+      Tag: Empty Entity
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        CameraType: 1
+        OrthographicCameraSize: 10
+        OrthographicNearClip: -1
+        OrthographicFarClip: 1
+        PerpectiveCameraFov: 45
+        PerpectiveNearClip: 0.01
+        PerpectiveFarClip: 1000
+      Primary: true
+      FixedAspectRadio: false
+  - Entity: 1582089463
+    TagComponent:
+      Tag: Box1
+    TransformComponent:
+      Translation: [-2.7578125, -2.817752, 0]
+      Rotation: [0, 0, -56.482166]
+      Scale: [21.404808, 1.0000001, 1]
+    SpriteComponent:
+      Color: [1, 1, 1, 1]
+    Rigidbody2DComponent:
+      Type: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5

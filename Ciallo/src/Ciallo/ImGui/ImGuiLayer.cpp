@@ -13,7 +13,7 @@
 
 #include <GLFW//glfw3.h>
 #include <glad/glad.h>
-
+#include "ImGuizmo.h"
 namespace Ciallo
 {
 #define BIND_EVENT_FN(x) std::bind(&ImGuiLayer::x,this,std::placeholders::_1)
@@ -44,10 +44,21 @@ namespace Ciallo
 
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
-		//ImGui::StyleColorsClassic();
+		//ImGui::Fonts
+		io.Fonts->Clear();
+		ImFont* font = io.Fonts->AddFontFromFileTTF("G:\\GameEngineLabelCode\\Ciallo\\Ciallo\\res\\Fonts\\narumono\\NaruMono.ttf", 25.0f);
+		HZ_CORE_ASSERT(font, "Failed to load font")
 
+		io.Fonts->Build();
 		// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 		ImGuiStyle& style = ImGui::GetStyle();
+		ImVec4* Colors = style.Colors;
+		Colors[ImGuiCol_Button] = ImVec4(0.1f, 0.1f, 0.1f, 1.0f);
+		Colors[ImGuiCol_ButtonHovered] = ImVec4(0.2f, 0.2f, 0.2f, 1.0f);
+		Colors[ImGuiCol_ButtonActive] = ImVec4(0.25f, 0.25f, 0.30f, 1.0f);
+		Colors[ImGuiCol_TitleBg] = ImVec4(0.15f, 0.15f, 0.15f, 1.0f);
+		
+
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 		{
 			style.WindowRounding = 0.0f;
@@ -84,6 +95,7 @@ namespace Ciallo
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
+		ImGuizmo::BeginFrame();
 	}
 
 	void ImGuiLayer::OnImGuiRender()

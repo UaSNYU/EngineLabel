@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Box2D", "Ciallo\vendor\Box2D\Box2D.vcxproj", "{A434E80C-1049-10BE-D9CA-B31D459E0CEF}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ciallo", "Ciallo\Ciallo.vcxproj", "{59BECBAB-4560-F681-2E1B-0AD61A5C7DD2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ciallo-Editor", "Ciallo-Editor\Ciallo-Editor.vcxproj", "{EDC38A48-5984-067F-22BF-4FFC8E3E4B5B}"
@@ -12,6 +14,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLFW", "Ciallo\vendor\GLFW\GLFW.vcxproj", "{154B857C-0182-860D-AA6E-6C109684020F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "Ciallo\vendor\imgui\ImGui.vcxproj", "{C0FF640D-2C14-8DBE-F595-301E616989EF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "yamlcpp", "Ciallo\vendor\yamlcpp\yamlcpp.vcxproj", "{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +30,12 @@ Global
 		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Dist|x64.Build.0 = Dist|x64
 		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.ActiveCfg = Release|x64
 		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.Build.0 = Release|x64
+		{A434E80C-1049-10BE-D9CA-B31D459E0CEF}.Debug|x64.ActiveCfg = Debug|x64
+		{A434E80C-1049-10BE-D9CA-B31D459E0CEF}.Debug|x64.Build.0 = Debug|x64
+		{A434E80C-1049-10BE-D9CA-B31D459E0CEF}.Dist|x64.ActiveCfg = Dist|x64
+		{A434E80C-1049-10BE-D9CA-B31D459E0CEF}.Dist|x64.Build.0 = Dist|x64
+		{A434E80C-1049-10BE-D9CA-B31D459E0CEF}.Release|x64.ActiveCfg = Release|x64
+		{A434E80C-1049-10BE-D9CA-B31D459E0CEF}.Release|x64.Build.0 = Release|x64
 		{59BECBAB-4560-F681-2E1B-0AD61A5C7DD2}.Debug|x64.ActiveCfg = Debug|x64
 		{59BECBAB-4560-F681-2E1B-0AD61A5C7DD2}.Debug|x64.Build.0 = Debug|x64
 		{59BECBAB-4560-F681-2E1B-0AD61A5C7DD2}.Dist|x64.ActiveCfg = Dist|x64
@@ -56,6 +66,12 @@ Global
 		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Dist|x64.Build.0 = Dist|x64
 		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|x64.ActiveCfg = Release|x64
 		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|x64.Build.0 = Release|x64
+		{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}.Debug|x64.ActiveCfg = Debug|x64
+		{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}.Debug|x64.Build.0 = Debug|x64
+		{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}.Dist|x64.ActiveCfg = Dist|x64
+		{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}.Dist|x64.Build.0 = Dist|x64
+		{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}.Release|x64.ActiveCfg = Release|x64
+		{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

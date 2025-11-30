@@ -6,9 +6,6 @@
 
 namespace Ciallo
 {
-
-
-
 	Ref<FrameBuffer> FrameBuffer::Create(FrameBufferSpecification& spec)
 	{
 

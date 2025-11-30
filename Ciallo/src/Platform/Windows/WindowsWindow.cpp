@@ -8,11 +8,8 @@
 
 #include "Platform/OpneGL/OpenGLContext.h"
 
-
-
 namespace Ciallo
 {
-	
 
 	static bool s_GLFWInitialized = false;
 
@@ -166,6 +163,7 @@ namespace Ciallo
 	{
 		glfwDestroyWindow(m_Window);
 	}
+
 
 	void WindowsWindow::OnUpdate()
 	{

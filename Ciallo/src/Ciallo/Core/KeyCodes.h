@@ -54,6 +54,7 @@
 
 #define HZ_MOUSE_BUTTON_LEFT         0
 #define HZ_MOUSE_BUTTON_RIGHT        1
+#define HZ_MOUSE_BUTTON_MIDDLE       2
 
 /* Function keys */
 #define HZ_KEY_ESCAPE             256

@@ -19,6 +19,11 @@ namespace Ciallo
 			m_RenderAPI->SetViewPort(x, y, width, height);
 		}
 
+		inline static void SetLineWidth(float width)
+		{
+			m_RenderAPI->SetLineWidth(width);
+		}
+
 		inline static void SetClearColor(const glm::vec4& color)
 		{
             m_RenderAPI->SetClearColor(color);
@@ -30,7 +35,11 @@ namespace Ciallo
 		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray,uint32_t count = 0)
 		{
             m_RenderAPI->DrawIndexed(vertexArray,count);
+		}
 
+		inline static void DrawLines(const Ref<VertexArray>& vertexArray, uint32_t vertexcount = 0)
+		{
+			m_RenderAPI->DrawLines(vertexArray, vertexcount);
 		}
 
 	private:

@@ -20,11 +20,15 @@ IncludeDir["ImGui"] = "Ciallo/vendor/imgui"
 IncludeDir["glm"] = "Ciallo/vendor/glm"
 IncludeDir["Stb_image"] = "Ciallo/vendor/STBIMAGE"
 IncludeDir["entt"]= "Ciallo/vendor/entt/include"
+IncludeDir["yaml"]= "Ciallo/vendor/yamlcpp/include"
+IncludeDir["ImGuizmo"]="Ciallo/vendor/ImGuizmo"
+IncludeDir["Box2D"]="Ciallo/vendor/Box2D/include"
 
 include "Ciallo/vendor/GLAD"
 include "Ciallo/vendor/GLFW"
 include "Ciallo/vendor/imgui"
-
+include "Ciallo/vendor/yamlcpp"
+include "Ciallo/vendor/Box2D"
 
 project "Ciallo"
    location "Ciallo"
@@ -46,7 +50,9 @@ project "Ciallo"
 	   "%{prj.name}/vendor/glm/glm/**.hpp",
 	   "%{prj.name}/vendor/glm/glm/**.inl",
 	   "%{prj.name}/vendor/STBIMAGE/stb_image.h",
-	   "%{prj.name}/vendor/STBIMAGE/stb_image.cpp"
+	   "%{prj.name}/vendor/STBIMAGE/stb_image.cpp",
+	   "%{prj.name}/vendor/ImGuizmo/ImGuizmo.h",
+	   "%{prj.name}/vendor/ImGuizmo/ImGuizmo.cpp"
    }
 
    includedirs
@@ -58,7 +64,10 @@ project "Ciallo"
 	   "%{IncludeDir.ImGui}",
 	   "%{IncludeDir.glm}",
 	   "%{IncludeDir.Stb_image}",
-	   "%{IncludeDir.entt}"
+	   "%{IncludeDir.entt}",
+	   "%{IncludeDir.yaml}",
+	   "%{IncludeDir.ImGuizmo}",
+	   "%{IncludeDir.Box2D}"
    }
 
    links
@@ -66,8 +75,13 @@ project "Ciallo"
 	    "ImGui",
 	    "GLAD",
 	    "GLFW",
-		"opengl32.lib"
+		"opengl32.lib",
+		"yamlcpp",
+		"Box2D"
    }
+
+   filter "files:Ciallo/vendor/ImGuizmo/**.cpp"
+   flags {"NoPCH"}
 
    filter "system:windows"
 	  systemversion "latest"
@@ -77,7 +91,8 @@ project "Ciallo"
 	  {
 		  "HZ_BUILD_DLL",
 		  "HZ_PLATFORM_WINDOWS",
-		  "GLFW_INCLUDE_NONE"
+		  "GLFW_INCLUDE_NONE",
+		  "YAML_CPP_STATIC_DEFINE"
 	  }
 
 	  filter "configurations:Debug"
@@ -177,7 +192,10 @@ project "Ciallo-Editor"
 	   "Ciallo/src",
 	   "%{IncludeDir.glm}",
 	   "%{IncludeDir.ImGui}",
-	   "%{IncludeDir.entt}"
+	   "%{IncludeDir.entt}",
+       "%{IncludeDir.yaml}",
+	   "%{IncludeDir.ImGuizmo}",
+	   "%{IncludeDir.Box2D}"
    }
 
    filter "system:windows"

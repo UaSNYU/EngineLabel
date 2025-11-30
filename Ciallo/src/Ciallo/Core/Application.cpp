@@ -26,7 +26,7 @@ namespace Ciallo {
 
 	Application::~Application()
 	{
-
+	
 	}
 
 	void Application::pushLayer(Layer* layer)

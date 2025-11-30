@@ -76,8 +76,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>clpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;YAML_CPP_STATIC_DEFINE;HZ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;vendor\yamlcpp\include;vendor\ImGuizmo;vendor\Box2D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,8 +98,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>clpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;YAML_CPP_STATIC_DEFINE;HZ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;vendor\yamlcpp\include;vendor\ImGuizmo;vendor\Box2D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -124,8 +124,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>clpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;HZ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HZ_BUILD_DLL;HZ_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;YAML_CPP_STATIC_DEFINE;HZ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;vendor\STBIMAGE;vendor\entt\include;vendor\yamlcpp\include;vendor\ImGuizmo;vendor\Box2D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -157,6 +157,8 @@
     <ClInclude Include="src\Ciallo\Core\Log.h" />
     <ClInclude Include="src\Ciallo\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Ciallo\Core\TimeStep.h" />
+    <ClInclude Include="src\Ciallo\Core\Utils\platformUtils.h" />
+    <ClInclude Include="src\Ciallo\Core\UUID.h" />
     <ClInclude Include="src\Ciallo\Core\Window.h" />
     <ClInclude Include="src\Ciallo\Debug\Instrumentor.h" />
     <ClInclude Include="src\Ciallo\Events\ApplicationEvent.h" />
@@ -176,22 +178,28 @@
     <ClInclude Include="src\Ciallo\Renderer\Shader.h" />
     <ClInclude Include="src\Ciallo\Renderer\SubTexture2D.h" />
     <ClInclude Include="src\Ciallo\Renderer\Texture.h" />
+    <ClInclude Include="src\Ciallo\Renderer\UniformBuffer.h" />
     <ClInclude Include="src\Ciallo\Renderer\VertexArray.h" />
     <ClInclude Include="src\Ciallo\Scene\Camera.h" />
     <ClInclude Include="src\Ciallo\Scene\Components.h" />
+    <ClInclude Include="src\Ciallo\Scene\EditorCamera.h" />
     <ClInclude Include="src\Ciallo\Scene\Entity.h" />
     <ClInclude Include="src\Ciallo\Scene\Scene.h" />
     <ClInclude Include="src\Ciallo\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Ciallo\Scene\SceneSerializer.h" />
+    <ClInclude Include="src\Ciallo\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLFrameBuffer.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLTexture.h" />
+    <ClInclude Include="src\Platform\OpneGL\OpenGLUniformBuffer.h" />
     <ClInclude Include="src\Platform\OpneGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\clpch.h" />
+    <ClInclude Include="vendor\ImGuizmo\ImGuizmo.h" />
     <ClInclude Include="vendor\STBIMAGE\stb_image.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
@@ -617,6 +625,7 @@
     <ClCompile Include="src\Ciallo\Core\Layer.cpp" />
     <ClCompile Include="src\Ciallo\Core\LayerStack.cpp" />
     <ClCompile Include="src\Ciallo\Core\Log.cpp" />
+    <ClCompile Include="src\Ciallo\Core\UUID.cpp" />
     <ClCompile Include="src\Ciallo\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Ciallo\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\Buffer.cpp" />
@@ -630,21 +639,29 @@
     <ClCompile Include="src\Ciallo\Renderer\Shader.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\SubTexture2D.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Ciallo\Renderer\UniformBuffer.cpp" />
     <ClCompile Include="src\Ciallo\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\EditorCamera.cpp" />
     <ClCompile Include="src\Ciallo\Scene\Entity.cpp" />
     <ClCompile Include="src\Ciallo\Scene\Scene.cpp" />
     <ClCompile Include="src\Ciallo\Scene\SceneCamera.cpp" />
+    <ClCompile Include="src\Ciallo\Scene\SceneSerializer.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Platform\OpneGL\OpenGLUniformBuffer.cpp" />
     <ClCompile Include="src\Platform\OpneGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowPlatformUtils.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\clpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGuizmo\ImGuizmo.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="vendor\STBIMAGE\stb_image.cpp" />
   </ItemGroup>
@@ -657,6 +674,12 @@
     </ProjectReference>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\yamlcpp\yamlcpp.vcxproj">
+      <Project>{7B153C50-E7F4-BAEB-F00C-46C25C6B214D}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\Box2D\Box2D.vcxproj">
+      <Project>{A434E80C-1049-10BE-D9CA-B31D459E0CEF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

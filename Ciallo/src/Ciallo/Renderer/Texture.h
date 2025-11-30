@@ -1,7 +1,7 @@
 #pragma once
 
+#include "Ciallo/Core/Core.h"
 #include <string>
-
 
 namespace Ciallo
 {
@@ -16,6 +16,8 @@ namespace Ciallo
 		virtual void SetData(void* data,uint32_t size) const = 0;
 
 		virtual void Bind(uint32_t slot=0) const = 0;
+
+		virtual uint32_t GetRendererID()const = 0;
 	};
 
 	class Texture2D :public Texture
